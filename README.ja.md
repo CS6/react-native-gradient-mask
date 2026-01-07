@@ -37,8 +37,8 @@
       <td align="center"><b>Android</b></td>
     </tr>
     <tr>
-      <td><img src="./images/ios  Demo Video.webm" alt="iOS デモ" width="280" /></td>
-      <td><img src="./images/android.mp4" alt="Android デモ" width="280" /></td>
+      <td><a href="./images/ios  Demo Video.webm"><img src="./images/ios.png" alt="iOS デモ" width="280" /></a></td>
+      <td><a href="./images/android.mp4"><img src="./images/android.png" alt="Android デモ" width="280" /></a></td>
     </tr>
   </table>
 </p>

@@ -1,6 +1,6 @@
 {
   "name": "react-native-gradient-mask",
-  "version": "0.1.0-beta.1",
+  "version": "0.0.1-beta.1",
   "description": "A native gradient mask component for React Native with Reanimated animation support. Supports iOS, Android, and Web platforms.",
   "main": "build/index.js",
   "module": "build/index.js",

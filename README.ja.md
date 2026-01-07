@@ -324,6 +324,30 @@ maskOpacity.value = withTiming(newValue, { duration: 300 });
 
 ---
 
+## Anini のために開発
+
+このライブラリは [**Anini**](https://play.google.com/store/apps/details?id=com.gazai.aichat) のために開発されました — スムーズでネイティブ品質のユーザー体験を提供する AI チャットコンパニオンアプリです。
+
+<p align="center">
+  <a href="https://play.google.com/store/apps/details?id=com.gazai.aichat">
+    <img src="https://img.shields.io/badge/Google_Play-Anini-414141?style=for-the-badge&logo=google-play&logoColor=white" alt="Google Play で Anini をダウンロード" />
+  </a>
+</p>
+
+---
+
+## スポンサー
+
+このプロジェクトは [**GAZAI**](https://gazai.io/EN/services) がスポンサーです — 革新的な AI 駆動アプリケーションを構築しています。
+
+<p align="center">
+  <a href="https://github.com/sponsors/CS6">
+    <img src="https://img.shields.io/badge/スポンサー-GitHub_Sponsors-ea4aaa?style=for-the-badge&logo=github-sponsors&logoColor=white" alt="GitHub でスポンサーになる" />
+  </a>
+</p>
+
+---
+
 ## ライセンス
 
 MIT © [DaYuan Lin (CS6)](https://github.com/CS6)

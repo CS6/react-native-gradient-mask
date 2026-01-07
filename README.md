@@ -324,6 +324,30 @@ maskOpacity.value = withTiming(newValue, { duration: 300 });
 
 ---
 
+## Built for Anini
+
+This library was originally developed for [**Anini**](https://play.google.com/store/apps/details?id=com.gazai.aichat) - an AI chat companion app that delivers smooth, native-quality user experiences.
+
+<p align="center">
+  <a href="https://play.google.com/store/apps/details?id=com.gazai.aichat">
+    <img src="https://img.shields.io/badge/Google_Play-Anini-414141?style=for-the-badge&logo=google-play&logoColor=white" alt="Get Anini on Google Play" />
+  </a>
+</p>
+
+---
+
+## Sponsor
+
+This project is sponsored by [**GAZAI**](https://gazai.io/EN/services) - Building innovative AI-powered applications.
+
+<p align="center">
+  <a href="https://github.com/sponsors/CS6">
+    <img src="https://img.shields.io/badge/Sponsor-GitHub_Sponsors-ea4aaa?style=for-the-badge&logo=github-sponsors&logoColor=white" alt="Sponsor on GitHub" />
+  </a>
+</p>
+
+---
+
 ## License
 
 MIT © [DaYuan Lin (CS6)](https://github.com/CS6)

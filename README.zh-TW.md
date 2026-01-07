@@ -324,6 +324,30 @@ maskOpacity.value = withTiming(newValue, { duration: 300 });
 
 ---
 
+## 為 Anini 打造
+
+這個套件最初是為 [**Anini**](https://play.google.com/store/apps/details?id=com.gazai.aichat) 開發的 — 一款提供流暢、原生品質使用者體驗的 AI 聊天夥伴應用程式。
+
+<p align="center">
+  <a href="https://play.google.com/store/apps/details?id=com.gazai.aichat">
+    <img src="https://img.shields.io/badge/Google_Play-Anini-414141?style=for-the-badge&logo=google-play&logoColor=white" alt="在 Google Play 下載 Anini" />
+  </a>
+</p>
+
+---
+
+## 贊助
+
+本專案由 [**GAZAI**](https://gazai.io/EN/services) 贊助 — 打造創新的 AI 驅動應用程式。
+
+<p align="center">
+  <a href="https://github.com/sponsors/CS6">
+    <img src="https://img.shields.io/badge/贊助-GitHub_Sponsors-ea4aaa?style=for-the-badge&logo=github-sponsors&logoColor=white" alt="在 GitHub 贊助" />
+  </a>
+</p>
+
+---
+
 ## 授權
 
 MIT © [DaYuan Lin (CS6)](https://github.com/CS6)

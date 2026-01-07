@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android", "web"],
+  "apple": {
+    "modules": ["GradientMaskModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.gradientmask.GradientMaskModule"]
+  }
+}

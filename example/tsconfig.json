@@ -1,0 +1,10 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "react-native-gradient-mask": ["../src/index"],
+      "react-native-gradient-mask/*": ["../src/*"]
+    }
+  }
+}

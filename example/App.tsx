@@ -7,6 +7,10 @@
  * Two modes:
  * - Half height mode (50%): Gradient starts from middle
  * - Full height mode (95%): Gradient covers almost entire screen
+ *
+ * Performance optimization test:
+ * - Android now uses ColorMatrix to adjust alpha instead of rebuilding bitmap
+ * - This significantly improves maskOpacity animation performance
  */
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -394,6 +398,7 @@ export default function CharacterChatScreenV3DTest() {
   const [autoAddMessages, setAutoAddMessages] = useState(false); // Auto add messages
   const [messages, setMessages] = useState<ChatMessage[]>(MOCK_MESSAGES);
   const messageCountRef = useRef(100); // Track message count
+  const [isStressTest, setIsStressTest] = useState(false); // Stress test mode
 
   // Mask opacity animation control (using Reanimated SharedValue)
   const maskOpacity = useSharedValue(0);
@@ -440,6 +445,30 @@ export default function CharacterChatScreenV3DTest() {
 
     return () => clearInterval(interval);
   }, [autoAddMessages]);
+
+  // Stress test: rapidly toggle maskOpacity to test ColorMatrix optimization
+  // This tests the performance improvement where Android no longer rebuilds bitmap on opacity change
+  useEffect(() => {
+    if (!isStressTest) return;
+
+    const interval = setInterval(() => {
+      // Toggle between 0 and 1 rapidly (every 100ms = 10 times per second)
+      maskOpacity.value = withTiming(maskOpacity.value > 0.5 ? 0 : 1, {
+        duration: 100,
+        easing: Easing.linear,
+      });
+    }, 150);
+
+    return () => {
+      clearInterval(interval);
+      // Reset to 0 when stopping stress test
+      maskOpacity.value = withTiming(0, { duration: 300 });
+    };
+  }, [isStressTest, maskOpacity]);
+
+  const toggleStressTest = useCallback(() => {
+    setIsStressTest((prev) => !prev);
+  }, []);
 
   const toggleAutoAddMessages = useCallback(() => {
     setAutoAddMessages((prev) => !prev);
@@ -612,6 +641,22 @@ export default function CharacterChatScreenV3DTest() {
               <Text style={styles.messageCountText}>Messages: {messages.length}</Text>
             </View>
           </View>
+          {/* Stress test button - tests ColorMatrix optimization on Android */}
+          <View style={styles.toggleRow}>
+            <Pressable
+              style={[styles.stressTestButton, isStressTest && styles.stressTestButtonActive]}
+              onPress={toggleStressTest}
+            >
+              <FontAwesome6
+                name="bolt"
+                size={12}
+                color={isStressTest ? Colors.white : 'rgba(255,255,255,0.5)'}
+              />
+              <Text style={[styles.stressTestText, isStressTest && styles.stressTestTextActive]}>
+                {isStressTest ? 'Stop Stress Test' : 'Opacity Stress Test'}
+              </Text>
+            </Pressable>
+          </View>
         </View>
 
         {/* Info Banner */}
@@ -773,6 +818,28 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.5)',
   },
   autoAddTextActive: {
+    color: Colors.white,
+  },
+  stressTestButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    gap: 6,
+    marginTop: 8,
+  },
+  stressTestButtonActive: {
+    backgroundColor: 'rgba(239, 68, 68, 0.7)',
+  },
+  stressTestText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: 'rgba(255, 255, 255, 0.5)',
+  },
+  stressTestTextActive: {
     color: Colors.white,
   },
   messageCountBadge: {
